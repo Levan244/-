@@ -9,9 +9,7 @@ public class Main {
         appProgramm(1, 2020);
         appProgramm(0,2022);
         System.out.println();
-        daliveryDays(5);
-        daliveryDays(25);
-        daliveryDays(200);
+        printDaliveryDays(95);
         System.out.println();
     }
 
@@ -49,23 +47,28 @@ public class Main {
     }
 
 
-    private static void daliveryDays(int distance) {
+    private static int daliveryDays(int distance) {
         int days = -1;
 
         if (distance <= 20) {
             days = 1;
-            System.out.println("Потребуеться дней: " + days);
         } else if (distance <= 60) {
             days = 2;
-            System.out.println("Потребуеться дней: " + days);
         } else if (distance <= 100) {
             days = 3;
-            System.out.println("Потребуеться дней: " + days);
-        } else if (distance > 100) {
-            System.out.println("Доставка не осуществляеться");
         }
+        return days;
 
 
+    }
+    private static void printDaliveryDays(int distance) {
+        int days = daliveryDays(distance);
+
+        if (days == -1) {
+            System.out.println("Доставка не осуществляеться");
+        } else {
+            System.out.println("Потребуеться: "+ days + " дней");
+        }
     }
 
 }
